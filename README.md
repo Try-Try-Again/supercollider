@@ -1,0 +1,2 @@
+- run alsa (all of your windows) through jackd: `nohup jackd -r -d alsa &`
+- search highlighted text in docs: `^D`
