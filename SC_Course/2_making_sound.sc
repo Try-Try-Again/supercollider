@@ -1,5 +1,5 @@
 Server.local.boot; // starts audio server
-S.boot // shorthand for starting audio server
+s.boot // shorthand for starting audio server
 
 Server.local.quit; // quits server
 s.quit // shorthand for quitting audio server

@@ -104,25 +104,23 @@ function is evaluated 4 times for 4 different numbers
   SynthDef.new(\randomMulti, {
     var sig, amp, env;
     env = EnvGen.kr(
-      Env.new([0, 1, 0], [10, 10], [1, -1]),
-      doneAction: 2
-    );
-    // without the curly braces, all the signals would be the same
-    //amp = SinOsc.kr({exprand(0.2,12)}!8).range(0, 1);
-    //sig = SinOsc.ar({exprand(30, 1200)}!8);
-    /*
-    Lowercase exprand is not ideal because it's evaluated during the
-    synth definition. Every time you create a new synth it will
-    sound the same as the last one.
-    */
-    // Uppercase ExpRand is evaluated when synth is created (not defined)
-    amp = SinOsc.kr({ExpRand(0.2,12)}!8).range(0, 1);
-    sig = SinOsc.ar({ExpRand(30, 1200)}!8);
-    sig = sig * amp * env;
-    sig = Splay.ar(sig) * 0.5;
-    Out.ar(0, sig);
-  }).add;
-)
+      Env.new([0, 1, 0], [10, 10], [1, -1]), doneAction: 2);
+      // without the curly braces, all the signals would be the same
+      //amp = SinOsc.kr({exprand(0.2,12)}!8).range(0, 1);
+      //sig = SinOsc.ar({exprand(30, 1200)}!8);
+      /*
+      Lowercase exprand is not ideal because it's evaluated during the
+      synth definition. Every time you create a new synth it will
+      sound the same as the last one.
+      */
+      // Uppercase ExpRand is evaluated when synth is created (not defined)
+      amp = SinOsc.kr({ExpRand(0.2,12)}!8).range(0, 1);
+      sig = SinOsc.ar({ExpRand(30, 1200)}!8);
+      sig = sig * amp * env;
+      sig = Splay.ar(sig) * 0.5;
+      Out.ar(0, sig);
+    }).add;
+  )
 
-y = Synth.new(\randomMulti);
-y.free;
+  y = Synth.new(\randomMulti);
+  y.free;
