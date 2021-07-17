@@ -1,4 +1,5 @@
 dist
+nohup.out
 dist-*
 cabal-dev
 *.o
