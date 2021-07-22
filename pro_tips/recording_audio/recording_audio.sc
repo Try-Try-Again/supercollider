@@ -19,7 +19,11 @@ s.makeWindow; // opens audio recording gui
 (
 	Routine({
 		//s.record;
-		s.record("./electro.aif", duration:4);
+		s.record(
+			// `++` concatinates strings without whitespace
+			"./" ++ Date.getDate.stamp ++ ".aif", // use current date for file name
+			duration:4
+		);
 
 		wait(0.02);
 
